@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLT UP | Modern VTU Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>VOLT UP</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Referal.html">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Referrals</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Airtime</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-database"></i>
+                            <span>Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Electricity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-tv"></i>
+                            <span>Cable TV</span>
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Airtime to Cash</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="transaction.html">
+                            <i class="fas fa-history"></i>
+                            <span>Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="mode-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <label for="dark-mode-toggle"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <header>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search services...">
+                </div>
+                <div class="user-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <span>John Doe</span>
+                        <div class="dropdown">
+                            <ul>
+                                <li id="logoutBtn">Log Out</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h1>Welcome back, John!</h1>
+                        
+                    </div>
+                    <div class="wallet-balance">
+                        <div class="balance">
+                            <span>Wallet Balance</span>
+                            <h2>₦25,430.00</h2>
+                        </div>
+                        
+                        <button class="btn-add-funds">
+                            <i class="fas fa-plus"></i> Add Funds
+                        </button>
+                    </div>
+                </div>
+
+            <!-- Promo Carousel -->
+            <div class="promo-carousel">
+                <div class="promo-slide active">
+                    <h3>10% Airtime Bonus!</h3>
+                    <p>Get extra credit on all airtime purchases this week</p>
+                    <button class="promo-cta">Claim Now</button>
+                </div>
+                <div class="promo-slide">
+                    <h3>WAEC EPIN Discount</h3>
+                    <p>Limited time offer for school registration</p>
+                    <button class="promo-cta">Get EPIN</button>
+                </div>
+                <div class="promo-slide">
+                    <h3>US-to-Africa Airtime</h3>
+                    <p>Send airtime to Nigeria with zero fees</p>
+                    <button class="promo-cta">Send Now</button>
+                </div>
+                
+                <div class="carousel-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>    
+
+                <!-- Quick Services -->
+                <div class="quick-services">
+                    <h3>Quick Services</h3>
+                    <div class="service-grid">
+                        <div class="service-card" data-service="airtime">
+                            <div class="service-icons">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <span>Airtime</span>
+                        </div>
+                        <div class="service-card" data-service="data">
+                            <div class="service-icons">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>Data</span>
+                        </div>
+                        <div class="service-card" data-service="electricity">
+                            <div class="service-icons">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span>Electricity</span>
+                        </div>
+                        <div class="service-card" data-service="cable">
+                            <div class="service-icons">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <span>Cable TV</span>
+                        </div>
+                        <div class="service-card" data-service="airtime-cash">
+                            <div class="service-icons">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <span>Airtime to Cash</span>
+                        </div>
+                        <div class="service-card" data-service="more">
+                            <div class="service-icons">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <!--- <div class="recent-transactions">
+                    <div class="section-header">
+                        <h3>Recent Transactions</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="transactions-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Service</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#VTU78945</td>
+                                    <td>Airtime (MTN)</td>
+                                    <td>₦1,000.00</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>10 mins ago</td>
+                                    <td><button class="btn-receipt">Receipt</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#VTU78944</td>
+                                    <td>Data (Airtel)</td>
+                                    <td>₦2,500.00</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>25 mins ago</td>
+                                    <td><button class="btn-receipt">Receipt</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#VTU78943</td>
+                                    <td>Electricity</td>
+                                    <td>₦5,000.00</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>1 hour ago</td>
+                                    <td><button class="btn-receipt">Receipt</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#VTU78942</td>
+                                    <td>DStv Subscription</td>
+                                    <td>₦9,800.00</td>
+                                    <td><span class="status failed">Failed</span></td>
+                                    <td>3 hours ago</td>
+                                    <td><button class="btn-receipt">Receipt</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+
+                <!-- Replace the recent-transactions div with this -->
+                <div class="transaction-slider-vertical">
+                    <div class="slider-header">
+                        <h3>Recent Transactions</h3>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <div class="slider-mask">
+                            <div class="slider-track">
+                                <!-- Transaction items will be added dynamically by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                
+</div>               <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stats-info">
+                            <span>Total Transactions</span>
+                            <h4>1,245</h4>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="stats-info">
+                            <span>Total Spent</span>
+                            <h4>₦187,650.00</h4>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="stats-info">
+                            <span>Total Bonus</span>
+                            <h4>₦9,380.00</h4>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-info">
+                            <span>Referrals</span>
+                            <h4>24</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Airtime Recharge</h2>
+            <div class="modal-body">
+                <form id="serviceForm">
+                    <div class="form-group">
+                        <label for="network">Network</label>
+                        <select id="network" required>
+                            <option value="">Select Network</option>
+                            <option value="mtn">MTN</option>
+                            <option value="airtel">Airtel</option>
+                            <option value="glo">Glo</option>
+                            <option value="9mobile">9mobile</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (₦)</label>
+                        <input type="number" id="amount" placeholder="Enter amount" required>
+                    </div>
+                    <div class="quick-amounts">
+                        <button type="button" class="quick-amount">₦500</button>
+                        <button type="button" class="quick-amount">₦1,000</button>
+                        <button type="button" class="quick-amount">₦2,000</button>
+                        <button type="button" class="quick-amount">₦5,000</button>
+                    </div>
+                    <button type="submit" class="btn-submit">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this before </body> -->
+<div class="chat-fab">
+    <div class="chat-icon">
+        <i class="fas fa-comment-dots"></i>
+        <span class="notification-badge">3</span>
+    </div>
+    <div class="chat-window">
+        <div class="chat-header">
+            <h4>VOLT UP Support</h4>
+            <button class="close-chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages">
+            <div class="message received">
+                <p>Hello! How can we help you today?</p>
+                <span class="time">10:42 AM</span>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="wealth-popup-modal" id="wealthPopup">
+    <div class="wealth-popup-content">
+      <div class="wealth-popup-header">
+        <div class="wealth-popup-logo">
+          <i class="fas fa-coins"></i>
+          <span>VOLT UP Wealth</span>
+        </div>
+        <span class="wealth-popup-tag missed-tag">Closed</span>
+      </div>
+      
+      <div class="wealth-popup-body">
+        <div class="wealth-popup-image-placeholder">
+          <!-- Image will go here -->
+          <i class="fas fa-image"></i>
+        </div>
+        
+        <h3 class="wealth-popup-title">Earnings Alert!</h3>
+        
+        <div class="wealth-popup-message">
+          <p>Your Unclaimed Earnings:</p>
+          <p class="highlight-text">Over 15 million users are already earning daily with VOLT UP Auto Save at 20% p.a.</p>
+        </div>
+      </div>
+      
+      <div class="wealth-popup-footer">
+        <button class="wealth-popup-button">Tap to View</button>
+        <div class="wealth-popup-terms">
+          <label class="wealth-checkbox">
+            <input type="checkbox">
+            <span>I confirm and accept Automatic Saving Service Agreement.</span>
+          </label>
+        </div>
+      </div>
+      
+      <button class="wealth-popup-close">&times;</button>
+    </div>
+  </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLT UP - Referral Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>VOLT UP</span>
+            </div>
+            <nav>
+                <ul>
+                    <li >
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Referrals</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Airtime</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-database"></i>
+                            <span>Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Electricity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-tv"></i>
+                            <span>Cable TV</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Airtime to Cash</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-history"></i>
+                            <span>Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="mode-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <label for="dark-mode-toggle"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <header>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search services...">
+                </div>
+                <div class="user-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <span>John Doe</span>
+                        <div class="dropdown">
+                            <ul>
+                                <li id="logoutBtn">Log Out</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+    <div class="referral-container">
+        <div class="referral-header">
+            <h1>VOLT UP Referral Program</h1>
+            <p>Invite your friends and earn rewards for every successful referral. Share your unique code and start earning today!</p>
+        </div>
+        
+        <div class="referral-banner">
+            <div class="banner-content">
+                <h2>Earn ₦500 for Every Friend Who Joins!</h2>
+                <p>Your friends get ₦100 bonus on their first recharge too. It's a win-win for everyone!</p>
+                <a href="#" class="btn btn-primary">Start Referring Now</a>
+            </div>
+            <div class="banner-image">
+                <img src="https://via.placeholder.com/200x150" alt="Referral Bonus" style="max-width:100%;">
+            </div>
+        </div>
+        
+        <div class="referral-card">
+            <h2>Your Referral Tools</h2>
+            
+            <div class="referral-code-container">
+                <div class="referral-code">VOLT-7X9K2P</div>
+                <button class="btn btn-copy" id="copyCodeBtn">
+                    <i class="fas fa-copy"></i> Copy Code
+                </button>
+            </div>
+            
+            <div class="referral-link-container">
+                <h3>Your Personal Referral Link</h3>
+                <div class="referral-link">
+                    <input type="text" id="referralLink" value="https://voltup.com/signup?ref=VOLT-7X9K2P" readonly>
+                    <button class="btn-copy-link" id="copyLinkBtn">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <p>Share this link with friends via WhatsApp, email, or social media</p>
+            </div>
+            
+            <div class="social-share">
+                <h3>Share Instantly</h3>
+                <div class="social-buttons">
+                    <button class="btn" style="background:#25D366; color:white;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="btn" style="background:#1877F2; color:white;">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                    <button class="btn" style="background:#1DA1F2; color:white;">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="referral-stats">
+            <div class="stat-card">
+                <h3>24</h3>
+                <p>Total Referrals</p>
+            </div>
+            <div class="stat-card">
+                <h3>18</h3>
+                <p>Successful Signups</p>
+            </div>
+            <div class="stat-card">
+                <h3>₦9,000</h3>
+                <p>Total Earnings</p>
+            </div>
+            <div class="stat-card">
+                <h3>₦500</h3>
+                <p>Pending Rewards</p>
+            </div>
+        </div>
+        
+        <div class="referral-card how-it-works">
+            <h2>How It Works</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Share Your Referral Link</h3>
+                    <p>Send your unique referral link to friends via social media, email, or messaging apps.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>They Sign Up & Recharge</h3>
+                    <p>Your friends sign up using your link and make their first recharge (minimum ₦500).</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>You Both Earn Rewards</h3>
+                    <p>You get ₦500, they get ₦100 bonus credit. Rewards are added instantly!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="referral-card">
+            <h2>Your Referral History</h2>
+            
+            <table class="referral-table">
+                <thead>
+                    <tr>
+                        <th>Friend</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Reward</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>john.doe@email.com</td>
+                        <td>May 15, 2023</td>
+                        <td><span class="status-completed">Completed</span></td>
+                        <td>₦500</td>
+                    </tr>
+                    <tr>
+                        <td>+2348012345678</td>
+                        <td>May 18, 2023</td>
+                        <td><span class="status-completed">Completed</span></td>
+                        <td>₦500</td>
+                    </tr>
+                    <tr>
+                        <td>jane_smith</td>
+                        <td>May 20, 2023</td>
+                        <td><span class="status-pending">Pending</span></td>
+                        <td>₦500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

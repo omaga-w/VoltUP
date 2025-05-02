@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLT UP - Sign In / Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-light: #a29bfe;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --dark-light: #636e72;
+            --light: #dfe6e9;
+            --white: #ffffff;
+            --danger: #d63031;
+            --warning: #fdcb6e;
+            --success: #00b894;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --dark-light: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animated Background */
+        .auth-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .electric-particle {
+            position: absolute;
+            background: rgba(108, 92, 231, 0.15);
+            border-radius: 50%;
+        }
+
+        .electric-line {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(108, 92, 231, 0.3), transparent);
+            transform-origin: left center;
+        }
+
+        /* Auth Form Styling */
+        .auth-form-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-form {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .form-header p {
+            color: var(--dark-light);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--light);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: var(--dark-light);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-google {
+            background: white;
+            color: var(--dark);
+            border: 1px solid var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-google:hover {
+            background: #f8f9fa;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--dark-light);
+            font-size: 0.9rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--light);
+            margin: 0 10px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--dark-light);
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .form-switch a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .form-switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Toggle between signin/signup */
+        .auth-forms {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .auth-form {
+            transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            backface-visibility: hidden;
+        }
+
+        .signup-form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateY(180deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .auth-forms.show-signup .signin-form {
+            transform: rotateY(180deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .auth-forms.show-signup .signup-form {
+            transform: rotateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 1rem;
+            }
+            
+            .auth-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-form {
+                padding: 1.25rem;
+            }
+            
+            .form-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="auth-background" id="electricBackground"></div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-form-container">
+            <div class="auth-forms" id="authForms">
+                <!-- Sign In Form -->
+                <form class="auth-form signin-form">
+                    <div class="form-header">
+                        <h1>Welcome Back</h1>
+                        <p>Sign in to access your VOLT UP dashboard</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signin-email">Email or Phone Number</label>
+                        <input type="text" id="signin-email" class="form-control" placeholder="Enter your email or phone">
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" class="form-control" placeholder="Enter your password">
+                        <i class="fas fa-lock input-icon"></i>
+                    </div>
+                    
+                    <a href="dashboard.html"><div class="form-group" id="createAccountBtn">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </div></a>
+                    
+                    <div class="form-footer">
+                        <a href="dashboard.html">Forgot password?</a>
+                    </div>
+                    
+                    <div class="divider">or continue with</div>
+                    
+                    <div class="form-group" id="createAccountBtn" >
+                        <button type="button" class="btn btn-google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                    </div>
+                    
+                    <div class="form-switch">
+                        Don't have an account? <a href="#" id="showSignup">Sign up</a>
+                    </div>
+                </form>
+                
+                <!-- Sign Up Form -->
+                <form class="auth-form signup-form">
+                    <div class="form-header">
+                        <h1>Create Account</h1>
+                        <p>Join VOLT UP to start managing your VTU services</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name">
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" class="form-control" placeholder="Enter your email">
+                        <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-phone">Phone Number</label>
+                        <input type="tel" id="signup-phone" class="form-control" placeholder="Enter your phone number">
+                        <i class="fas fa-phone input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" class="form-control" placeholder="Create a password">
+                        <i class="fas fa-lock input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" class="form-control" placeholder="Confirm your password">
+                        <i class="fas fa-lock input-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                    
+                    <div class="form-switch">
+                        Already have an account? <a href="#" id="showSignin">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between signin/signup
+        document.getElementById('showSignup').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('authForms').classList.add('show-signup');
+        });
+        
+        document.getElementById('showSignin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('authForms').classList.remove('show-signup');
+        });
+
+        document.getElementById("createAccountBtn").addEventListener("click", function() {
+    window.location.href = "dashboard.html";
+});
+
+        // Electric background animation
+        function createElectricBackground() {
+            const background = document.getElementById('electricBackground');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Create particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('electric-particle');
+                
+                // Random position
+                const size = Math.random() * 8 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * width}px`;
+                particle.style.top = `${Math.random() * height}px`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                background.appendChild(particle);
+                
+                // Animate particles
+                animateParticle(particle, width, height);
+            }
+            
+            // Create connections
+            setInterval(() => {
+                const particles = document.querySelectorAll('.electric-particle');
+                document.querySelectorAll('.electric-line').forEach(el => el.remove());
+                
+                particles.forEach((particle1, i) => {
+                    particles.forEach((particle2, j) => {
+                        if (i < j) {
+                            const x1 = parseFloat(particle1.style.left) + parseFloat(particle1.style.width) / 2;
+                            const y1 = parseFloat(particle1.style.top) + parseFloat(particle1.style.height) / 2;
+                            const x2 = parseFloat(particle2.style.left) + parseFloat(particle2.style.width) / 2;
+                            const y2 = parseFloat(particle2.style.top) + parseFloat(particle2.style.height) / 2;
+                            
+                            const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                            
+                            if (distance < 200) {
+                                const line = document.createElement('div');
+                                line.classList.add('electric-line');
+                                
+                                line.style.left = `${x1}px`;
+                                line.style.top = `${y1}px`;
+                                line.style.width = `${distance}px`;
+                                
+                                const angle = Math.atan2(y2 - y1, x2 - x1);
+                                line.style.transform = `rotate(${angle}rad)`;
+                                
+                                line.style.opacity = (1 - distance / 200) * 0.3;
+                                
+                                background.appendChild(line);
+                                
+                                // Remove line after animation
+                                setTimeout(() => {
+                                    line.remove();
+                                }, 1000);
+                            }
+                        }
+                    });
+                });
+            }, 1500);
+        }
+        
+        function animateParticle(particle, width, height) {
+            let x = parseFloat(particle.style.left);
+            let y = parseFloat(particle.style.top);
+            let xSpeed = (Math.random() - 0.5) * 0.5;
+            let ySpeed = (Math.random() - 0.5) * 0.5;
+            
+            function move() {
+                x += xSpeed;
+                y += ySpeed;
+                
+                // Bounce off edges
+                if (x < 0 || x > width) {
+                    xSpeed *= -1;
+                }
+                if (y < 0 || y > height) {
+                    ySpeed *= -1;
+                }
+                
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                
+                requestAnimationFrame(move);
+            }
+            
+            move();
+        }
+        
+        // Initialize
+        window.addEventListener('load', createElectricBackground);
+        
+        // Dark mode toggle (connect to your existing toggle)
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+        }
+        
+        // Check for existing dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>
